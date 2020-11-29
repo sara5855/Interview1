@@ -29,6 +29,11 @@
             location.hash = "document/new/" + vm.someText();
         };
 
+        vm.openPopup = function(){
+            app.log("openPopup was clicked.")
+            app.rootVM.infoDialogVM.openInfo("This is what you wrote: " + vm.someText());
+        };
+
         return vm;
     })(),
     
