@@ -44,6 +44,10 @@
                 content: mainVm,
                 animateOnReactivate:false
             }">
+                <!-- ko if: app.rootVM.userInfo -->
+                Hello user {{ko.unwrap(app.rootVM.userInfo).UserName}}
+                <!-- /ko -->
+                <br>
                 This is the main page
                 <br>
                 <a href="#examples">Go to Examples</a>
@@ -58,7 +62,7 @@
                 content: examplesVm,
                 animateOnReactivate:false
             }">
-                This is the main page
+                This is the examples page
                 <br>
                 {{someText}}
                 <br>

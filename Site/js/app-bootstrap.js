@@ -67,7 +67,7 @@ app.commitLogout = function (success, faild) {
 
 app.commitRetriveCurrentLogedInUser = function (success, faild) {
    app.log("We need to retrive user.")
-   success({UserName:"Interview"});
+   success({UserName:"Interviewer"});
 };
 
 app.onUserIsSet = function (oldUser, newUser) {
