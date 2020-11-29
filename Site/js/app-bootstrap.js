@@ -87,12 +87,16 @@ app.onApplicationStarting = function(){
 app.extendRoutes({
     routes: {
         "(/)": "main",
+        "examples": "examples",
         "document/new/:type":"newDocument",
         "*url":"pageNotFound"
     },
 
     main:function(){
-        app.moveToPage("main", {
+        app.moveToPage("main");
+    },
+    examples:function(){
+        app.moveToPage("examples", {
             message:"Hello World"
         });
     },

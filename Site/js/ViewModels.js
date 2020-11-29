@@ -2,7 +2,9 @@
     userInfo:ko.observable(),
     isLoggedIn: ko.observable(),
 
-    mainVm: (function(){
+    mainVm:{},
+
+    examplesVm: (function(){
         var vm = {
             someText:ko.observable(),
         };
@@ -32,6 +34,14 @@
         vm.openPopup = function(){
             app.log("openPopup was clicked.")
             app.rootVM.infoDialogVM.openInfo("This is what you wrote: " + vm.someText());
+        };
+
+        vm.showLoading = function(){
+            app.log("showLoading was clicked.")
+            app.rootVM.infoDialogVM.startLoading("Loading for 5 sec");
+            setTimeout(function(){
+                app.rootVM.infoDialogVM.stopLoading("Loading for 5 sec");
+            }, 5000);
         };
 
         return vm;
