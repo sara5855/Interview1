@@ -42,38 +42,20 @@
                 region: 'main_region', 
                 pageId: 'main',
                 content: mainVm,
-                animateOnReactivate:false
+                animateOnReactivate:false,
+                src: 'parts/main.html'
             }">
-                <!-- ko if: app.rootVM.userInfo -->
-                Hello user {{ko.unwrap(app.rootVM.userInfo).UserName}}
-                <!-- /ko -->
-                <br>
-                This is the main page
-                <br>
-                <a href="#examples">Go to Examples</a>
-            </div>
-        </div>
 
-        <div style="display:none;">
+            </div>
+        
             <div data-bind="control: {
                 type: 'page', 
                 region: 'main_region', 
                 pageId: 'examples',
                 content: examplesVm,
-                animateOnReactivate:false
+                animateOnReactivate:false,
+                src: 'parts/examples.html'
             }">
-                This is the examples page
-                <br>
-                {{someText}}
-                <br>
-                <input data-bind="value:someText"/>
-                <br/>
-                <button data-bind="click:clicked">Click here to move to another page</button>
-                <br/>
-                <button data-bind="click:openPopup">{{localize("Show Popup")}}</button>
-                <br/>
-                <button data-bind="click:showLoading">{{localize("Show Loading")}}</button>
-            </div>
         </div>
 
         <!--
