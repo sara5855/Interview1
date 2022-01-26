@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
+using Microsoft.Extensions.Hosting;
 
 namespace DocumentsEngine
 {
     class Program
     {
+
         /// <summary>
         /// The system you are implementing has two main roles:
         ///     1. Provide the client to update/add/get documents data. in order to do that you need to
@@ -17,10 +20,44 @@ namespace DocumentsEngine
         ///        discounts only to documents which were updated in our storage two times. You can make changes in your data contracts and your MemoryStorage for this implementation.
         ///     4. Good Luck!!!
         /// </summary>
+        private static Container container;
+
+        public static object Lifestyle { get; private set; }
+
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
             Console.WriteLine("Hello World!");
+            Console.ReadLine();
+            // TO do : Use Dependency Injection
+            //IStorage storage = new MemoryStorage();
+            //try
+            //{
+            //    //storage.SaveDocument(new Document { Title = "my doc1", TotalAmount = 100 });
+            //}
+            //catch(Exception ex)
+            //{
+
+            //}
+        }
+
         }
     }
-}
