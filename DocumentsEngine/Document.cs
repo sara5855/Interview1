@@ -6,6 +6,12 @@ namespace DocumentsEngine
 {
     public class Document
     {
+        public Document() { }
+        public Document(string title, decimal totalAmount)
+        {
+            Title = title;
+            TotalAmount = totalAmount; 
+        }
         public int Id { get; set; }
 
         public string Title { get; set; }

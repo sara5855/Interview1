@@ -1,5 +1,6 @@
 Application.startup_log("Starting app-bootstrap.js", true);
 
+
 var app = ExtendedApplication("1.0", true);
 app.showStackTraceOnLogs = false;
 app.shouldUseOriginStartPage = true;
@@ -88,6 +89,7 @@ app.extendRoutes({
     routes: {
         "(/)": "main",
         "examples": "examples",
+        "documents": "documents",
         "document/new/:type":"newDocument",
         "*url":"pageNotFound"
     },
@@ -101,7 +103,12 @@ app.extendRoutes({
         });
     },
     newDocument:function(type){
-        app.log("This code is not implemented.");
+        app.moveToPage("addEditDocument", {
+            type: type
+        });
+    },
+    documents: function (type) {
+        app.moveToPage("documents");
     },
     pageNotFound:function(url){
         app.error("Page not found for url '" + url + "'");
