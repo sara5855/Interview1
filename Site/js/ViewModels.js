@@ -113,7 +113,7 @@ app.rootVM = {
         vm.activate = function (activationParams) {
             vm.id = activationParams.type;
             if (vm.id !== 'undefined') {
-                vm.getDoc(id);
+                vm.getDoc(vm.id);
                 
             }
         };
