@@ -21,12 +21,12 @@ namespace DocumentsEngine
                .Execute(() => SaveDocumentAction(document));
         }
 
-        private void SaveDocumentAction(Document document)
+        private async void SaveDocumentAction(Document document)
         {
             Random rnd = new Random();
             if (rnd.Next(1, 11) > 5)
             {
-                Task.Delay(1000);
+                await Task.Delay(1000);
                 // ToDo: Store in memory here
                 document.Id = Id;
                 Documents.Add(Id, document);
@@ -39,8 +39,9 @@ namespace DocumentsEngine
             }
         }
 
-        public Document GetDocument(int id)
+        public async Task<Document> GetDocument(int id)
         {
+            await Task.Delay(1000);
             // ToDo: Fetch from memory here
             bool res = Documents.TryGetValue(id, out Document document);
             if (res)
@@ -53,14 +54,16 @@ namespace DocumentsEngine
             }
         }
 
-        public IDictionary<int, Document> GetAllDocuments()
+        public async Task<IDictionary<int, Document>> GetAllDocuments()
         {
+            await Task.Delay(1000);
             // ToDo: Implement
             return Documents;
         }
 
-        public List<int> GetAllDocumentsIds()
+        public async Task<List<int>> GetAllDocumentsIds()
         {
+            await Task.Delay(1000);
             List<int> ids = new List<int>();
             Dictionary<int, Document>.KeyCollection keys = Documents.Keys;
             // ToDo: Implement
@@ -71,8 +74,9 @@ namespace DocumentsEngine
             return ids;
         }
 
-        public void UpdateDocumentAmount(int docId, decimal newAmount)
+        public async void UpdateDocumentAmount(int docId, decimal newAmount)
         {
+            await Task.Delay(1000);
             // ToDo: Implement
             bool res = Documents.TryGetValue(docId, out Document document);
             if (res)
@@ -85,8 +89,9 @@ namespace DocumentsEngine
             }
         }
 
-        public void DeleteDocument(int docId)
+        public async void DeleteDocument(int docId)
         {
+            await Task.Delay(1000);
             bool res = Documents.TryGetValue(docId, out Document document);
             if (res)
             {
@@ -103,8 +108,9 @@ namespace DocumentsEngine
         /// </summary>
         /// <param name="docId"></param>
         /// <param name="discountAmount"></param>
-        public void DocumentAmountDiscount(int docId, decimal discountAmount)
+        public async void DocumentAmountDiscount(int docId, decimal discountAmount)
         {
+            await Task.Delay(1000);
             // ToDo: Implement
             bool res = Documents.TryGetValue(docId, out Document document);
             if (res)

@@ -18,9 +18,10 @@ namespace DocumentsEngine
         }
 
         // GET: api/documents/5
-        public Document Get(int id)
+        public async Task<Document> Get(int id)
         {
-            return storage.GetDocument(id);
+            Document d = await storage.GetDocument(id);
+            return d;
         }
 
         // POST: api/documents
@@ -29,7 +30,7 @@ namespace DocumentsEngine
             storage.SaveDocument(value);
         }
         // GET: api/documents
-        public IDictionary<int, Document> Get()
+        public Task<IDictionary<int, Document>> Get()
         {
             return storage.GetAllDocuments();
         }

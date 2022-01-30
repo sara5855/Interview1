@@ -1,7 +1,11 @@
-                <!-- ko if: app.rootVM.userInfo -->
-                Hello user {{ko.unwrap(app.rootVM.userInfo).UserName}}
-                <!-- /ko -->
-                <br>
-                This is the main page
-                <br>
-                <a href="#examples">Go to Examples</a>
+               
+    <div class="main-page">
+        <!-- ko if: app.rootVM.userInfo -->
+        <h1>Hello {{ko.unwrap(app.rootVM.userInfo).UserName}}!</h1>
+        <!-- /ko -->
+        <br>
+        <br>
+        <a href="#examples">Go to Examples</a>
+        <a href="#documents">Show my documents</a>
+    </div>
+                

@@ -2,18 +2,22 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
 
         <!-- This is the main app container -->
         <div data-page-region="main_region" data-bind="control: { type: 'region', id: 'main_region'}">
+            <div>
+
+            </div>
         </div>
 
-         <!--
-            | ============================= |
-            |          Templates            |
-            | ============================= |
-        -->
+        <!--
+        | ============================= |
+        |          Templates            |
+        | ============================= |
+    -->
         <script type="text/template" id="loadingDialog">
             <div data-bind="control: { type: 'modal', isOpen: isLoading }" class="text-right fade" data-backdrop="static" data-keyboard="false">
                 <div class="modal-body">
@@ -32,14 +36,14 @@
         </script>
 
         <!--
-            | ============================= |
-            |       Page definisions        |
-            | ============================= |
-        -->
+        | ============================= |
+        |       Page definisions        |
+        | ============================= |
+    -->
         <div style="display:none;">
             <div data-bind="control: {
-                type: 'page', 
-                region: 'main_region', 
+                type: 'page',
+                region: 'main_region',
                 pageId: 'main',
                 content: mainVm,
                 animateOnReactivate:false,
@@ -47,23 +51,41 @@
             }">
 
             </div>
-        
+
             <div data-bind="control: {
-                type: 'page', 
-                region: 'main_region', 
+                type: 'page',
+                region: 'main_region',
                 pageId: 'examples',
                 content: examplesVm,
                 animateOnReactivate:false,
                 src: 'parts/examples.html'
             }">
             </div>
+            <div data-bind="control: {
+                type: 'page',
+                region: 'main_region',
+                pageId: 'documents',
+                content: documentsVm,
+                animateOnReactivate:false,
+                src: 'parts/documents.html'
+            }">
+            </div>
+            <div data-bind="control: {
+                type: 'page',
+                region: 'main_region',
+                pageId: 'addEditDocument',
+                content: addEditVm,
+                animateOnReactivate:false,
+                src: 'parts/addEditDocument.html'
+            }">
+            </div>
         </div>
 
         <!--
-            | ============================= |
-            |           PopUps              |
-            | ============================= |
-        -->
+        | ============================= |
+        |           PopUps              |
+        | ============================= |
+    -->
         <div data-bind="template: { name: 'loadingDialog', data: {text: app.rootVM.infoDialogVM.loadingText, isLoading: app.rootVM.infoDialogVM.isLoading}}"></div>
 
         <!-- ko with: app.rootVM.infoDialogVM -->
@@ -75,11 +97,11 @@
                 <span style="font-size: 20px" dir="rtl">
                     <!-- ko if:$data.title -->
                     {{title}}
-               
-                <!--/ko-->
-                <!-- ko ifnot:$data.title -->
-                {{localize("Popup Title")}} 
-                <!--/ko-->
+
+                    <!--/ko-->
+                    <!-- ko ifnot:$data.title -->
+                    {{localize("Popup Title")}}
+                    <!--/ko-->
                 </span>
                 <div class="Border-Box With-Buttons" style="margin-top: 10px;">
                     <!-- ko if: ko.unwrap($data.type) == "error" -->
@@ -107,12 +129,11 @@
             </div>
         </div>
         <!-- /ko -->
-
-         <!--
-            | ============================= |
-            |         References            |
-            | ============================= |
-        -->
+        <!--
+        | ============================= |
+        |         References            |
+        | ============================= |
+    -->
         <script src="libs/jquery-1.9.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="libs/lodash.js"></script>
@@ -131,11 +152,12 @@
         <script src="libs/controls.js"></script>
 
         <script src="libs/ServiceHelpers.js"></script>
-        
+
         <script src="js/app-bootstrap.js"></script>
         <script src="js/ViewModels.js"></script>
 
         <script src="libs/localize-binding.js"></script>
         <script src="localization/He.js"></script>
+        <script src="libs/ko-querystring.js"></script>
     </body>
 </html>
