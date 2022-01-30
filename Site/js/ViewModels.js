@@ -60,20 +60,6 @@ app.rootVM = {
             { id: 1, title: "doc1", totalAmount: 15 },
             { id: 1, title: "doc1", totalAmount: 15 }
 
-            //{ id: 1, title: "doc1", totalAmount: 15 },
-            //{ id: 2, title: "doc2", totalAmount: 33 },
-            //{ id: 3, title: "doc3", totalAmount: 44 },
-            //{ id: 4, title: "doc4", totalAmount: 45 },
-            //{ id: 5, title: "doc5", totalAmount: 15 },
-            //{ id: 1, title: "doc1", totalAmount: 15 },
-            //{ id: 1, title: "doc1", totalAmount: 15 },
-
-            //{ id: 1, title: "doc1", totalAmount: 15 },
-            //{ id: 2, title: "doc2", totalAmount: 33 },
-            //{ id: 3, title: "doc3", totalAmount: 44 },
-            //{ id: 4, title: "doc4", totalAmount: 45 },
-            //{ id: 5, title: "doc5", totalAmount: 0 }
-
         ];
         vm.docs = ko.observableArray(data.map(function (item) { return new Item(item); }));
         
